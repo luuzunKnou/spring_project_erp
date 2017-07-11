@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luuzun.persistence.ErpDAO">
+	<!-- 
+	projectNo
+	projectName
+	projectContent
+	projectBeginDate
+	projectEndDate
+	projectProgress 
+	-->
+	<!-- C -->
+		<insert id="insert">
+		INSERT INTO project_info
+			(project_name, project_content, project_begin_date, project_end_date, project_progress)
+			VALUES(#{projectName}, #{projectContent}, #{projectBeginDate}, #{projectEndDate}, #{projectProgress});
+		</insert>
+	<!-- R -->
+		<select id="selectAll" resultType="ProjectInfo">
+			SELECT project_no, project_name, project_content, project_begin_date, project_end_date, project_progress
+				FROM project_info
+		</select>
+		
+		<select id="selectOne" resultType="ProjectInfo">
+			SELECT project_no, project_name, project_content, project_begin_date, project_end_date, project_progress
+				FROM project_info
+				WHERE project_no = #{projectNo};
+		</select>
+		
+	<!-- U -->
+		<update id="update">
+			UPDATE project_info
+				SET project_name=#{projectName}, 
+					project_content=#{projectContent}, 
+					project_begin_date=#{projectBeginDate}, 
+					project_end_date=#{projectEndDate}, 
+					project_progress=#{projectProgress} 
+				WHERE project_no = #{projectNo};
+		</update>
+	<!-- D -->
+		<delete id="delete">
+			DELETE FROM project_info
+				WHERE project_no = #{projectNo};
+		</delete>
+</mapper>

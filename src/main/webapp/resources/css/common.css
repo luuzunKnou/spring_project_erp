@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+
+fieldset {width: 700px;}
+label {display: inline-block; width: 200px;}
+p:LAST-CHILD { text-align: center }
+span.errorMsg { font-size: 12px; color: red; display: none; margin-left: 131px;}
+.errorMsgByID {color:red; text-align: center;}
+.pBtnSubmit {text-align: center;}
